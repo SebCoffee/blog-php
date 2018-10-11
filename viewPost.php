@@ -3,7 +3,7 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id'])){ // Si l'id n'est pas transm
     header('Location: index.php');
 }else{
     require_once('config/functions.php'); 
-    $post  = getPostById($_GET['id']);
+    $post = getPostById($_GET['id']);
 } 
 ?>
 

@@ -1,5 +1,5 @@
 <?php
-require_once('./config/functions.php');
+require_once('config/functions.php');
 $posts = getPosts();
 ?>
 
@@ -17,7 +17,8 @@ $posts = getPosts();
     <h1>Articles: </h1>
     <?php foreach($posts as $post): ?>
         <h2>#<?=$post->id?> - <?= $post->title ?></h2>
-        <p>dernière édition : <time><?= $post->edition_date ?></time></p>
+        <p> ecrit le : <time><?= $post->creation_date?><time> par <?= $post->author?> </p>
+        <p>dernière édition le : <time><?= $post->edition_date ?></time></p>
         <a href="viewPost.php?id=<?=$post->id ?>">Lire la suite</a>
     <?php endforeach; ?>
 </body>

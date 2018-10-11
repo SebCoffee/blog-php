@@ -18,8 +18,8 @@ $messages = getMessage();
     <?php foreach($messages as $message): ?>
         <h2>#<?=$message->id?> - <?= $message->subject ?></h2>
         <p>émetteur : <?= $message->email ?></p>
-        <p>message : <<?= $message->content ?></p>
-        <a href="actions/delete/deleteMessage.php?id="<?=$message->id ?>">Supprimer</a>
+        <p>message : <?= $message->content ?></p>
+        <a href="deleteMessage.php?id="<?=$message->id ?>>Supprimer</a>
     <?php endforeach; ?>
 </body>
 </html>

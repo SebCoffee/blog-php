@@ -1,13 +1,5 @@
-<?php 
-
-echo "email = ".$_POST['email']."<br/>";
-echo "sujet = ".$_POST['subject']."<br/>";
-echo "msg = ".$_POST['message']."<br/>"; 
-
-?>
-
 <?php
-    require('../config/connect.php');
+    require('config/connect.php');
     // ON ECHAPPE TOUT LES CARACTERES POUR EVITER LES INJECTIONS DE CODE
         $email = htmlspecialchars($_POST['email']);
         $msgsubject = htmlspecialchars($_POST['subject']);
@@ -16,5 +8,6 @@ echo "msg = ".$_POST['message']."<br/>";
         $req = $bdd->prepare('INSERT INTO contact (subject,email,message,creation_date) VALUES (:msgsubject,:email,:msg, NOW())');
         $req->execute(array('msgsubject'=>$msgsubject,'email'=>$email,'msg'=>$msg));        
     // UN FOIS LES DONNEES ENVOYEES EN BDD ON REDIRIGE VERS LA PAGE HOME
-        header('Location: ../index.php');
+        header('Location: index.php');
+        $req->CloseCursor();
 ?>

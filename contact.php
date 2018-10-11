@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<form action="actions/submitContact.php" method="post" id="contacform">
+<form action="submitContact.php" method="post" id="contacform">
 <p> Votre email :   <input type="text" name="email" required="required"/></p>
 <p> Sujet :         <input type="text" name="subject" required="required"/></p>
 <p>Message :        <textarea name="message" required="required"></textarea></p>
