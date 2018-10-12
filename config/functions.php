@@ -40,6 +40,15 @@ function getLatestPosts(){ //RECUPERE LES 5 DERNIER ARTICLES
     $req->CloseCursor();
 } 
 
+function getLatestPostsForAdmin(){ //RECUPERE LES 5 DERNIER ARTICLES
+    require('config/connect.php');
+    $req = $bdd->prepare('SELECT id, title,edition_date,creation_date,status,author FROM post ORDER BY edition_date DESC LIMIT 5');
+    $req->execute();
+    $data = $req->fetchAll(PDO::FETCH_OBJ);
+    return $data;
+    $req->CloseCursor();
+} 
+
 function getUsers(){ //RECUPERE LES UTILISATEURS EN BDD
     require('config/connect.php');
     $req = $bdd->prepare('SELECT id, pseudo, email FROM user ');
@@ -64,7 +73,7 @@ function getUserById($id){ //RECUPÈRE L' UTILISATEUR EN BDD PAR SON ID
 
 function getMessages(){ //RECUPERE LES MESSAGES EN BDD
     require('config/connect.php');
-    $req = $bdd->prepare('SELECT id, title, email, date_creation FROM message ORDER BY date_creation DESC');
+    $req = $bdd->prepare('SELECT id, subject,email,creation_date FROM contact ORDER BY creation_date DESC ');
     $req->execute();
     $data = $req->fetchAll(PDO::FETCH_OBJ);
     return $data;
@@ -81,6 +90,15 @@ function getMessageById($id){//RECUPÈRE LE MESSAGE EN BDD PAR SON ID
     } else{ // SI PAS DE RESULTAT ALORS ON RENVOIT VERS LA PAGE D'ACCUEIL
         header('Location: contactAdmin.php');
     } 
+    $req->CloseCursor();
+} 
+
+function getLatestMessages(){ //RECUPERE LES 5 DERNIER ARTICLES
+    require('config/connect.php');
+    $req = $bdd->prepare('SELECT id, subject,email,creation_date FROM contact ORDER BY creation_date DESC LIMIT 5');
+    $req->execute();
+    $data = $req->fetchAll(PDO::FETCH_OBJ);
+    return $data;
     $req->CloseCursor();
 } 
 ?>

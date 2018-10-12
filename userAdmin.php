@@ -1,26 +1,41 @@
 <?php
-require_once('config/functions.php');
-echo "toto";
-$users = getUsers();
-?>
+session_start();
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Blog | Tous les utilisateurs</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/styles/main.css" />
-    <script src="assets/scripts/main.js"></script>
-</head>
-<body>
+if ($_SESSION['isAdmin'] == true) {
+    require_once('config/functions.php');
+    echo "toto";
+    $users = getUsers();
+    ?>
+
+    <?php
+    $pageTitle = "Administration des utilisateurs";
+    require_once('header.php'); ?>
+
     <h1>Utilisateurs: </h1>
-    <?php foreach($users as $user): ?>
-        <h2>#<?=$user->id?> - <?= $user->pseudo ?></h2>
-        <p>email : <time><?= $user->email ?></time></p>        
-        <a href="editUser.php?id="<?=$user->id ?>>Editer</a>
-        <a href="deleteUser.php?id="<?=$user->id ?>>Supprimer</a>
-    <?php endforeach; ?>
-</body>
-</html>
+    <table>
+        <tr>id
+            <th>titre</th>
+            <th>pseudo</th>
+            <th>email</th>
+            <th></th>
+        </tr>
+        <?php foreach ($users as $user): ?>
+            <tr>
+                <td>#<?= $user->id ?></td>
+                <td><?= $user->pseudo ?></td>
+                <td><?= $user->author ?></td>
+                <td><?= $user->email ?></td>
+                <td><a href="editUser.php?id=<?= $user->id ?>">Voir / Editer</a></td>
+                <td><a href="deleteUser.php?id=<?= $user->id ?>"
+                       onClick="confirm('êtes vous sur de vouloir supprimer ?');">Supprimer</a></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+
+    <?php require_once('footer.php');
+
+} else {
+    header('location: login.php');
+}
+
+?>
