@@ -12,11 +12,11 @@ if ($_SESSION['isAdmin'] == true) {
 
     <?php require_once('header.php'); ?>
     <form action="submitUserEdition.php" method="post" id="userEditionForm">
-        <p> pseudo : <input type="text" name="pseudo" value=<?= $user->pseudo ?>/></p>
-        <p> email : <input type="email" name="email" value=<?= $user->email ?>/></p>
-        <p> password : <input type="password" name="password"/></p>
-        <p> password confirm : <input type="password" name="passwordconfirm"/></p>
-        <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>"/>
+        <p> pseudo : <input type="text" name="pseudo" value=<?= $user->pseudo ?>></p>
+        <p> email : <input type="email" name="email" value=<?= $user->email ?>></p>
+        <p> password : <input type="password" name="password"></p>
+        <p> password confirm : <input type="password" name="passwordconfirm"></p>
+        <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
         <!-- à voir pour stocker l'Id en session par la suite -->
         <p><input type="submit"></p>
     </form>

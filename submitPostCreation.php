@@ -7,7 +7,7 @@ if ($_SESSION['isAdmin'] == true) {
     $title = htmlspecialchars($_POST['title']);
     $content = htmlspecialchars($_POST['content']);
     $status = htmlspecialchars($_POST['status']);
-    $author = "admin"; //=============================================>>>>>> A changer avec la conexion de l'utilisateur
+    $author = $_SESSION['authUser'] ; //=============================================>>>>>> A changer avec la conexion de l'utilisateur
     // ON ENVOI LES DONNEES VERS LA BDD
     $req = $bdd->prepare('INSERT INTO post (title,content,status,creation_date,edition_date,author) VALUES (:title,:content,:status, NOW(), NOW(),:author)');
     $req->execute(array('title' => $title, 'content' => $content, 'status' => $status, 'author' => $author));

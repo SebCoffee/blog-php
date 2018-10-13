@@ -6,7 +6,9 @@
     <title>Blog | <?= $pageTitle ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/styles/main.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/lib/bootstrap/css/bootstrap.css"/>
     <script src="assets/scripts/main.js"></script>
+    <script src="assets/lib/js/bootstrap.bundle.js"></script>
 </head>
 <body>
 <header>

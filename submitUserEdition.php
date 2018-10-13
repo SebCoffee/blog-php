@@ -16,7 +16,7 @@ if ($_SESSION['isAdmin'] == true) {
         $req = $bdd->prepare('UPDATE user SET pseudo = :pseudo, email = :email WHERE id= :id');
         $req->execute(array('pseudo' => $pseudo, 'email' => $email, 'id' => $id));
     }
-    header('Location: postAdmin.php');
+    header('Location: userAdmin.php');
     $req->CloseCursor();
 } else {
     echo "vous devez être connecté pour soumettre ce formulaire - rien n'a été modifié";
