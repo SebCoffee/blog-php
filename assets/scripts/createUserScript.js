@@ -1,3 +1,30 @@
+function usernameCallBack(response){
+    if (response == 'taken' ) {
+        username_state = false;
+        $('#username').parent().removeClass();
+        $('#username').parent().addClass("form_error");
+        $('#username').siblings("span").text('Sorry... Username already taken');
+    }else if (response == 'not_taken') {
+        username_state = true;
+        $('#username').parent().removeClass();
+        $('#username').parent().addClass("form_success");
+        $('#username').siblings("span").text('Username available');
+    }
+}
+function emailCallBack(response){
+    if (response == 'taken' ) {
+        email_state = false;
+        $('#email').parent().removeClass();
+        $('#email').parent().addClass("form_error");
+        $('#email').siblings("span").text('Sorry... Email already taken');
+    }else if (response == 'not_taken') {
+        email_state = true;
+        $('#email').parent().removeClass();
+        $('#email').parent().addClass("form_success");
+        $('#email').siblings("span").text('Email available');
+    }
+}
+
 $('document').ready(function(){
     var username_state = false;
     var email_state = false;
@@ -21,7 +48,7 @@ $('document').ready(function(){
                  'username' : username,
                  'password' : password,
              },
-             success: function(response){
+             success: function(){
                  alert('user saved');
                  $('#username').val('');
                  $('#email').val('');
@@ -49,7 +76,7 @@ $('document').ready(function(){
         usernameCallBack(response);
       }
     });
-   };		
+   }
    
    function emailCheck(emailCallBack){
        var email = $('#email').val();
@@ -69,30 +96,5 @@ $('document').ready(function(){
         }
        });
 
-    function usernameCallBack(response){
-        if (response == 'taken' ) {
-            username_state = false;
-            $('#username').parent().removeClass();
-            $('#username').parent().addClass("form_error");
-            $('#username').siblings("span").text('Sorry... Username already taken');
-        }else if (response == 'not_taken') {
-            username_state = true;
-            $('#username').parent().removeClass();
-            $('#username').parent().addClass("form_success");
-            $('#username').siblings("span").text('Username available');
-        }
-    } 
-    function emailCallBack(response){
-        if (response == 'taken' ) {
-            email_state = false;
-            $('#email').parent().removeClass();
-            $('#email').parent().addClass("form_error");
-            $('#email').siblings("span").text('Sorry... Email already taken');
-        }else if (response == 'not_taken') {
-            email_state = true;
-            $('#email').parent().removeClass();
-            $('#email').parent().addClass("form_success");
-            $('#email').siblings("span").text('Email available');
-        }
-    } 
-   };
+
+   }

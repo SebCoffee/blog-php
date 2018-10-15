@@ -8,11 +8,11 @@ if ($_SESSION['isAdmin'] == true) {
         <h1>Inscription</h1>
         <div id="error_msg"></div>
 	    <div>
-	 	    <input type="text" name="username" placeholder="Username" id="username" required="required" onblur="usernameCheck();">
+	 	    <input type="text" name="username" placeholder="Username" id="username" required="required" onblur="usernameCheck(usernameCallBack);">
 	        <span></span>
 	    </div>
 	    <div>
-	        <input type="email" name="email" placeholder="Email" id="email" required="required" onblur="emailCheck();">
+	        <input type="email" name="email" placeholder="Email" id="email" required="required" onblur="emailCheck(emailCallBack);">
 		    <span></span>
 	    </div>
 	    <div>
