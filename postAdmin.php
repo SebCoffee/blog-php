@@ -11,7 +11,8 @@ if ($_SESSION['isAdmin'] == true) {
     require_once('header.php'); ?>
     <h1>Articles: </h1>
     <table class="table table-stripped">
-        <tr>id
+        <tr>
+            <th>id</th>
             <th>titre</th>
             <th>auteur</th>
             <th>date de création</th>

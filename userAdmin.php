@@ -12,11 +12,12 @@ if ($_SESSION['isAdmin'] == true) {
 
     <h1>Utilisateurs: </h1>
     <table class="table table-stripped">
-        <tr>id
+        <tr><th>id</th>
             <th>titre</th>
             <th>pseudo</th>
             <th>email</th>
             <th></th>
+            <th><a href="editUser.php">Créer un nouvel Utilisateur</a></th>
         </tr>
         <?php foreach ($users as $user): ?>
             <tr>

@@ -1,46 +1,73 @@
 <?php
 session_start();
-
 if ($_SESSION['isAdmin'] == true) {
-    if (!isset($_GET['id']) OR !is_numeric($_GET['id'])) { // Si l'id n'est pas transmis ou n'est pas un nombre  => retour à la page d'accueil
-        header('Location: userAdmin.php');
-    } else {
-        require_once('config/functions.php');
+    require_once('config/functions.php');
+    if(isset($_GET['id']) && is_numeric($_GET['id'])){ //SI IL Y A UN ID EN URL ON ESSAYE DE RECUPÉRER L'UTILISATEUR CORRESPONDANT
         $user = getUserById($_GET['id']);
-        include('submitUserEdition.php');
-    }
-    ?>
+    } // SINON LE FORMULAIRE SERA VIDE.
+    
+    if($user){
+        include("submitUserEdition.php");
+    } 
+    else{
+        include("submitUserCreation.php");
+    } 
+    require_once('header.php'); ?>
 
-    <?php require_once('header.php'); ?>
-
-<form id="register_form">
+ <form id="register_form">
         <h1>Inscription</h1>
         <div id="error_msg"></div>
-        <input id="id" type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
 	    <div>
-	 	    <input type="text" name="username" placeholder="Username" id="username" required="required" onblur="usernameCheck();"value=<?= $user->pseudo ?>>
+	 	    <input type="text" name="username" placeholder="Username" id="username" onblur="usernameCheck(usernameCallBack);" value=<?= $user->pseudo ?>>
 	        <span></span>
 	    </div>
 	    <div>
-	        <input type="email" name="email" placeholder="Email" id="email" required="required" onblur="emailCheck();"value=<?= $user->email ?>>
+	        <input type="email" name="email" placeholder="Email" id="email" onblur="emailCheck(emailCallBack);" value=<?= $user->email ?>>
 		    <span></span>
 	    </div>
 	    <div>
-	        <input type="password" name="password" placeholder="Password" id="password" >
+	        <input type="password" name="password" placeholder="Password" id="password">
         </div>
         <div>
-            <input type="password" name="passwordConfirm" placeholder="PasswordConfirm" id="passwordConfirm" >
+            <input type="password" name="confirm_password" placeholder="PasswordConfirm" id="confirm_password">
         </div>
 	    <div>
-	 	    <button type="button" name="register" id="reg_btn">modifier le compte</button>
+	 	    <button type="button" name="register" id="reg_btn" onclick="submitForm();"> Créer le compte</button>
 	    </div>
     </form>
-   
-    <?php require_once('footer.php');?>
-    <script src="assets/scripts/updateUserScript.js"></script>
-    <?php
-} else {
-    header('location: login.php');
-}
 
-?>
+   
+   
+    <?php 
+    require_once('footer.php');
+    if($user){
+        echo '<script src="assets/scripts/updateUserScript.js"></script>';
+    } 
+    else{
+        echo '<script src="assets/scripts/createUserScript.js"></script>';
+    } 
+}else {
+    header('location: login.php');
+}?>
+<script>
+$(document).ready(function(){
+
+    //from : https://codepen.io/diegoleme/pen/surIK
+
+    var password = document.getElementById("password"), confirm_password = document.getElementById("confirm_password");
+
+    function validatePassword(){
+    if(password.value != confirm_password.value) {
+        confirm_password.setCustomValidity("Les mots de passe ne correspondent pas");
+    } else {
+        confirm_password.setCustomValidity('');
+    }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+
+   
+
+});
+</script>

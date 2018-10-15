@@ -1,9 +1,10 @@
 <?php
 session_start();
-include('submitUserCreation.php');
+
 if ($_SESSION['isAdmin'] == true) {
     $pageTitle = "création d'un utilisateur";
-    require_once('header.php'); ?>   
+    require_once('header.php'); 
+    include('submitUserCreation.php');?>   
     <form id="register_form">
         <h1>Inscription</h1>
         <div id="error_msg"></div>
@@ -22,7 +23,7 @@ if ($_SESSION['isAdmin'] == true) {
             <input type="password" name="passwordConfirm" placeholder="PasswordConfirm" id="passwordConfirm" required="required">
         </div>
 	    <div>
-	 	    <button type="button" name="register" id="reg_btn">Créer le compte</button>
+	 	    <button type="button" name="register" id="reg_btn" onclick="submitForm();"> Créer le compte</button>
 	    </div>
     </form>
    

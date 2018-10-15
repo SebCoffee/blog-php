@@ -21,7 +21,7 @@ if ($_SESSION['isAdmin'] == true) {
             <th>status</th>
             <th></th>
             <th></th>
-            <th><a href="createPost.php">Créer un nouvel article</a></th>
+            <th><a href="editPost.php">Créer un nouvel article</a></th>
         </tr>
         <?php foreach ($posts as $post): ?>
             <tr>
@@ -54,6 +54,9 @@ if ($_SESSION['isAdmin'] == true) {
             <th>date de création</th>
             <th></th>
             <th></th>
+            <th></th>
+            <th></th>
+            <th><a href="contactAdmin.php">Voir tout les messages</a></th>
         </tr>
         <?php foreach ($msgs as $msg): ?>
             <tr>
@@ -64,6 +67,9 @@ if ($_SESSION['isAdmin'] == true) {
                     <time><?= $msg->creation_date ?>
                         <time>
                 </td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td>
                     <a href="viewMessage.php?id=<?= $msg->id ?>">voir le message</a>
                 </td>
@@ -77,20 +83,26 @@ if ($_SESSION['isAdmin'] == true) {
 
     <h1>Utilisateurs: </h1>
     <table class="table table-stripped">
-        <tr>id
-            <th>titre</th>
+        <tr>
+            <th>id</th>            
             <th>pseudo</th>
             <th>email</th>
             <th></th>
             <th></th>
-            <th><a href="createUser.php">Créer un nouvel Utilisateur</a></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th><a href="editUser.php">Créer un nouvel Utilisateur</a></th>
         </tr>
         <?php foreach ($users as $user): ?>
             <tr>
                 <td>#<?= $user->id ?></td>
                 <td><?= $user->pseudo ?></td>
-                <td><?= $user->author ?></td>
                 <td><?= $user->email ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td><a href="editUser.php?id=<?= $user->id ?>">Voir / Editer</a></td>
                 <td><a href="deleteUser.php?id=<?= $user->id ?>"
                        onClick="confirm('êtes vous sur de vouloir supprimer ?');">Supprimer</a></td>

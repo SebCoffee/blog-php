@@ -99,17 +99,17 @@ OK  RG_02_03 - doit contenir une section 'mon profil' : modification des donnée
 
 OK RG_02_04_01  - listing 
 
-KO RG_02_04_02  - édition 
+OK RG_02_04_02  - édition 
 
-KO RG_02_04_03  - création
+OK RG_02_04_03  - création
     
 OK RG_03_01 - un id (identifiant unique) = > OK
     
-KO RG_03_02 - un pseudo (unique)
+OK RG_03_02 - un pseudo (unique)
     
-KO RG_03_03 - un mot de passe
+OK RG_03_03 - un mot de passe
     
-KO RG_03_04 - un email (unique)
+OK RG_03_04 - un email (unique)
 
 OK RG_02_04_04  - suppression
 
