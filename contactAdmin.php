@@ -11,7 +11,7 @@ if ($_SESSION['isAdmin'] == true) {
     require_once('header.php');
     ?>
     <h1>Messages: </h1>
-    <table>
+    <table class="table table-stripped">
         <tr>
             <th>id</th>
             <th>titre</th>

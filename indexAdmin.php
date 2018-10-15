@@ -12,14 +12,16 @@ if ($_SESSION['isAdmin'] == true) {
     ?>
 
     <h1>Derniers articles: </h1>
-    <table>
-        <tr>id
+    <table class="table table-stripped">
+        <tr><th>id</th>
             <th>titre</th>
             <th>auteur</th>
             <th>date de création</th>
             <th>dernière édition</th>
             <th>status</th>
             <th></th>
+            <th></th>
+            <th><a href="createPost.php">Créer un nouvel article</a></th>
         </tr>
         <?php foreach ($posts as $post): ?>
             <tr>
@@ -44,12 +46,13 @@ if ($_SESSION['isAdmin'] == true) {
     </table>
 
     <h1>Derniers messages: </h1>
-    <table>
+    <table class="table table-stripped">
         <tr>
             <th>id</th>
             <th>titre</th>
             <th>email</th>
             <th>date de création</th>
+            <th></th>
             <th></th>
         </tr>
         <?php foreach ($msgs as $msg): ?>
@@ -61,20 +64,26 @@ if ($_SESSION['isAdmin'] == true) {
                     <time><?= $msg->creation_date ?>
                         <time>
                 </td>
-                <td><a href="viewMessage.php?id=<?= $msg->id ?>">voir le message</a></td>
-                <td><a href="deleteMessage.php?id=<?= $msg->id ?>"
-                       onClick="confirm('êtes vous sur de vouloir supprimer ?');">Supprimer</a></td>
+                <td>
+                    <a href="viewMessage.php?id=<?= $msg->id ?>">voir le message</a>
+                </td>
+                <td>
+                    <a href="deleteMessage.php?id=<?= $msg->id ?>"
+                       onClick="confirm('êtes vous sur de vouloir supprimer ?');">Supprimer</a>
+                </td>
             </tr>
         <?php endforeach; ?>
     </table>
 
     <h1>Utilisateurs: </h1>
-    <table>
+    <table class="table table-stripped">
         <tr>id
             <th>titre</th>
             <th>pseudo</th>
             <th>email</th>
             <th></th>
+            <th></th>
+            <th><a href="createUser.php">Créer un nouvel Utilisateur</a></th>
         </tr>
         <?php foreach ($users as $user): ?>
             <tr>

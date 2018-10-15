@@ -10,7 +10,7 @@ if ($_SESSION['isAdmin'] == true) {
     $pageTitle = "Administation des articles";
     require_once('header.php'); ?>
     <h1>Articles: </h1>
-    <table>
+    <table class="table table-stripped">
         <tr>id
             <th>titre</th>
             <th>auteur</th>

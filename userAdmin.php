@@ -3,7 +3,6 @@ session_start();
 
 if ($_SESSION['isAdmin'] == true) {
     require_once('config/functions.php');
-    echo "toto";
     $users = getUsers();
     ?>
 
@@ -12,7 +11,7 @@ if ($_SESSION['isAdmin'] == true) {
     require_once('header.php'); ?>
 
     <h1>Utilisateurs: </h1>
-    <table>
+    <table class="table table-stripped">
         <tr>id
             <th>titre</th>
             <th>pseudo</th>

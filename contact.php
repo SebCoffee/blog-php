@@ -1,4 +1,3 @@
-a
 <?php
 $pageTitle = "contactez-nous";
 require_once('frontHeader.php'); ?>

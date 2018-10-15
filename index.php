@@ -7,8 +7,9 @@ $posts = getLatestPosts();
 $pageTitle = "Home";
 require_once('frontHeader.php'); ?>
     <h1>Articles: </h1>
-    <table>
-        <tr>id
+    <table class="table table-stripped">
+        <tr>
+            <th>id</th>
             <th>titre</th>
             <th>auteur</th>
             <th>date de création</th>

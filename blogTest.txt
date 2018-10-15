@@ -1,0 +1,195 @@
+﻿# EXERCICE : CREATION D'UN MINI-BLOG EN PHP
+
+
+### PAGES
+
+
+Le blog comportera deux sections, un front coté visiteurs et une administration en accès restreint.
+
+
+Il devra avoir une présentation propre, avec l'utilisation de Twitter Bootstrap
+
+
+#### Le front
+
+* RG_01_01 
+- sur toutes les page, un menu de navigation.
+    
+- index => ok
+    
+- viewAllposts => ok
+    
+- viewposts => ok
+    
+- contact => ok
+    
+- login => ok
+
+
+
+OK - RG_01_02 
+- une page d'accueil présentant les 5 derniers articles, classés par date du plus au moins récent (voir définition d'un article plus bas).
+
+
+OK RG_01_03_01 
+- une page "tous les articles", articles classés comme ci-dessus, 
+
+* RG_01_03_02 
+- paginée serait un plus .
+
+
+OK RG_01_04 - une page par article
+    
+- RG_04_01 - un id (identifiant unique) => ?
+    
+- RG_04_02 - un titre (nullable) => ok
+    
+- RG_04_03 - un contenu (nullable) => ok
+    
+- RG_04_04 - une date de création => ok
+    
+- RG_04_05 - une date de mise à jour => ok
+    
+- RG_04_06 - un auteur ( -> relation avec 'user' ) => ok
+
+
+OK RG_01_05 - une page de formulaire de contact (voir définition du contact plus bas)
+    
+* RG_05_01 - un id (identifiant unique)
+    
+* RG_05_02 - un sujet => ok
+    
+* RG_05_03 - un email => ok
+    
+* RG_05_04 - un message  => ok
+    
+* RG_05_05 - une date de création
+
+OK - 01 - Demande a être connecter pour la creation d'un message ?
+
+OK - 02 - a en haut à gauche
+
+
+#### L'administration
+
+
+OK - RG_02_01 - accessible uniquement aux utilisateurs par une page de login
+
+
+* RG_02_02 - doit contenir une section de gestion des articles (
+
+OK  RG_02_02_01  - listing 
+
+OK  RG_02_02_02  - édition 
+
+OK  RG_02_02_03  - création
+
+OK  RG_02_02_04  - suppression
+
+OK - 01 - Manque bouton création
+
+
+
+OK  RG_02_03 - doit contenir une section 'mon profil' : modification des données de l'utilisateur connecté
+
+- lien vers l'utilisateur connecté
+
+
+* RG_02_04 - doit contenir une section de gestion des autres utilisateurs (listing / édition / création / suppression)
+
+OK RG_02_04_01  - listing 
+
+KO RG_02_04_02  - édition 
+
+KO RG_02_04_03  - création
+    
+OK RG_03_01 - un id (identifiant unique) = > OK
+    
+KO RG_03_02 - un pseudo (unique)
+    
+KO RG_03_03 - un mot de passe
+    
+KO RG_03_04 - un email (unique)
+
+OK RG_02_04_04  - suppression
+
+
+* RG_02_05 - doit contenir une section de gestion des messages envoyés par le formulaire de contact
+
+OK - RG_02_05_01  - listing 
+
+KO - RG_02_05_02  - lecture unitaire
+
+OK - RG_02_05_03  - suppression
+    
+* RG_05_01 - un id (identifiant unique)
+    
+* RG_05_02 - un sujet
+    
+* RG_05_03 - un email
+    
+* RG_05_04 - un message 
+    
+* RG_05_05 - une date de création
+
+
+
+### DÉFINITIONS
+
+
+Sauf si indiqué, pour chaque entité, tous les champs sont obligatoires.
+
+
+#### UTILISATEUR
+ ( user )
+
+un utilisateur est défini par :
+
+
+* RG_03_01 - un id (identifiant unique)
+
+* RG_03_02 - un pseudo (unique)
+
+* RG_03_03 - un mot de passe
+
+* RG_03_04 - un email (unique)
+
+
+
+#### ARTICLE 
+( post )
+
+un article est défini par :
+
+
+* RG_04_01 - un id (identifiant unique)
+
+* RG_04_02 - un titre (nullable)
+
+* RG_04_03 - un contenu (nullable)
+
+* RG_04_04 - une date de création
+
+* RG_04_05 - une date de mise à jour
+
+* RG_04_06 - un auteur ( -> relation avec 'user' )
+
+
+* RG_04_07 serait un plus : un système de gestion du status de l'article (brouillon/publié/...)
+
+
+#### CONTACT 
+( contact )
+
+un contact est défini par :
+
+
+* RG_05_01 - un id (identifiant unique)
+
+* RG_05_02 - un sujet
+
+* RG_05_03 - un email
+
+* RG_05_04 - un message 
+
+* RG_05_05 - une date de création
