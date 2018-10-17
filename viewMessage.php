@@ -14,15 +14,15 @@ if ($_SESSION['isAdmin'] == true) {
     ?>
 
     <?php
-    $pageTitle = "Tous les messsages";
-    require_once('header.php'); ?>
+    $pageTitle = "Blog | ".$Message->subject;
+     ?>
     <h1><?= $Message->subject ?></h1>
     <p> expediteur : <?= $Message->email ?></p>
     <p><?= $Message->message ?></p>
     <p> écrit le
         <time><?= $Message->creation_date ?></time>
     </p>
-    <?php require_once('footer.php');
+    <?php
 } else {
     header('location: login.php');
 }

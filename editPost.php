@@ -11,18 +11,27 @@ if ($_SESSION['isAdmin'] == true) {
     <?php
     $pageTitle = "édition d'un article";
     require_once('header.php'); ?>
-    <form id="postCreationForm">
-        <p> titre : <textarea id="title" name="title"><?= $post->title ?></textarea></p>
-        <p> contenu : <textarea id="content" name="content"><?= $post->content ?></textarea></p>
-        <ul>
-            <li><input type="radio" name="status" value="draft" required checked><label>Brouillon</label></li>
-            <!-- par defaut l'édition provoque la mise en brouiilon de l'article-->
-            <li><input type="radio" name="status" value="published"><label>Publié</label></li>
-        </ul>
-        <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>"/>
-        <!-- à voir pour stocker l'Id en session par la suite -->
-        <p><button type="button" name="register" id="reg_btn" onclick="submitForm();"> Soumettre</button></p>
-    </form>
+    <div class="entities-group">
+        <form id="postCreationForm">
+            <div class="form-group">
+                <p> titre : <textarea class="form-control" id="title" name="title"><?= $post->title ?></textarea></p>
+            </div>
+
+            <div class="form-group">
+                <p> contenu : <textarea class="form-control" rows="15" style="resize: vertical !important;" id="content" name="content"><?= $post->content ?></textarea></p>
+            </div>
+            <div class="form-goup">
+                <ul>
+                    <li><input type="radio" name="status" value="draft" required checked><label>Brouillon</label></li>
+                    <!-- par defaut l'édition provoque la mise en brouiilon de l'article-->
+                    <li><input type="radio" name="status" value="published"><label>Publié</label></li>
+                </ul>
+            </div>
+            <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>"/>
+            <!-- à voir pour stocker l'Id en session par la suite -->
+            <p><button type="button" name="register" id="reg_btn" onclick="submitForm();"> Soumettre</button></p>
+        </form>
+    </div>
 
     <?php 
     require_once('footer.php');
@@ -37,3 +46,9 @@ if ($_SESSION['isAdmin'] == true) {
     header('location: login.php');
 }
 ?>
+<script src='https://devpreview.tiny.cloud/demo/tinymce.min.js'></script>
+<script>
+    tinymce.init({
+        selector: '#content'
+    });
+</script>

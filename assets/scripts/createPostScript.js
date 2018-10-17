@@ -15,4 +15,4 @@ function submitForm(){
             alert('article sauvegardé');           
         }
     });
-} 
+}

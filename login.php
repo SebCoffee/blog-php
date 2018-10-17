@@ -31,19 +31,22 @@ $pageTitle = "Connexion";
 require_once('frontHeader.php');
 
 ?>
+    <form id="register_form" method="POST">
+        <h1>Connexion</h1>
+        <div id="error_msg"></div>
+        <div>
+            <input type="text" name="username" placeholder="Username" id="username" onblur="usernameCheck(usernameCallBack);" value=<?= $user->pseudo ?>>
+            <span></span>
+        </div>
+        <div>
+            <input type="password" name="password" placeholder="Password" id="password">
+        </div>
 
-    <p> veuillez vous connecter pour accéder à cette partie du blog </p>
-    <form method="POST">
         <div>
-            <input id="username" type="text" name="username" placeholder="Username">
-        </div>
-        <div>
-            <input id="password" type="password" name="password" placeholder="Passowrd">
-        </div>
-        <div>
-            <input type="submit" value="submit">
+            <button type="submit" name="register" id="reg_btn" > Connexion </button>
         </div>
     </form>
+
 <?php
 require_once('footer.php');
 ?>

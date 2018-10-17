@@ -8,8 +8,7 @@ if (!isset($_GET['id']) OR !is_numeric($_GET['id'])) { // Si l'id n'est pas tran
 ?>
 
 <?php
-$pageTitle = $post->title;
-require_once('frontHeader.php'); ?>
+$pageTitle = $post->title; ?>
 
     <article class="align-middle">
         <div class="container">
@@ -28,5 +27,3 @@ require_once('frontHeader.php'); ?>
     </article>
 
     <hr/>
-
-<?php require_once('footer.php'); ?>
