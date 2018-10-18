@@ -15,7 +15,13 @@ if ($_SESSION['isAdmin'] == true) {
     require_once('header.php'); ?>
 
  <form id="register_form">
-        <h1>Inscription</h1>
+        <?php
+        if($user){
+            echo "<h1>Edition de l'utilisateur</h1>";
+        }else{
+            echo "<h1>Nouvel utilisateur</h1>";
+        }
+        ?>
         <div id="error_msg"></div>
 	    <div>
 	 	    <input type="text" name="username" placeholder="Username" id="username" onblur="usernameCheck(usernameCallBack);" value=<?= $user->pseudo ?>>
@@ -26,20 +32,22 @@ if ($_SESSION['isAdmin'] == true) {
 		    <span></span>
 	    </div>
 	    <div>
-	        <input type="password" name="password" placeholder="Password" id="password">
+	        <input type="password" name="password" placeholder="mot de passe" id="password" onchange="validatePassword()">
         </div>
         <div>
-            <input type="password" name="confirm_password" placeholder="PasswordConfirm" id="confirm_password">
+            <input type="password" name="confirm_password" placeholder="confirmez le mot de passe" id="confirm_password" onkeyup="validatePassword()">
         </div>
 	    <div>
 	 	    <button type="button" name="register" id="reg_btn" onclick="submitForm();"> Créer le compte</button>
 	    </div>
     </form>
 
-   
-   
-    <?php 
+    <?php
+
     require_once('footer.php');
+
+    echo '<script src="assets/scripts/passwordValidate.js"></script>';
+
     if($user){
         echo '<script src="assets/scripts/updateUserScript.js"></script>';
     } 
@@ -50,24 +58,5 @@ if ($_SESSION['isAdmin'] == true) {
     header('location: login.php');
 }?>
 <script>
-$(document).ready(function(){
 
-    //from : https://codepen.io/diegoleme/pen/surIK
-
-    var password = document.getElementById("password"), confirm_password = document.getElementById("confirm_password");
-
-    function validatePassword(){
-    if(password.value != confirm_password.value) {
-        confirm_password.setCustomValidity("Les mots de passe ne correspondent pas");
-    } else {
-        confirm_password.setCustomValidity('');
-    }
-    }
-
-    password.onchange = validatePassword;
-    confirm_password.onkeyup = validatePassword;
-
-   
-
-});
 </script>

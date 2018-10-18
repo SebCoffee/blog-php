@@ -13,6 +13,7 @@ function usernameCallBack(response){
         $('#username').siblings("span").text('Username available');
     }
 }
+
 function emailCallBack(response){
     if (response == 'taken' ) {
         console.log("emailCallBack received response = taken");

@@ -7,8 +7,8 @@
 -- Version du serveur :  5.7.23-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.10-1+ubuntu18.04.1+deb.sury.org+1
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+/*SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";*/
+/*SET time_zone = "+00:00";*/
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -19,16 +19,16 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  'blog'
 --
-CREATE DATABASE IF NOT EXISTS 'blog' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+/*CREATE DATABASE IF NOT EXISTS 'blog' DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
 USE 'blog';
 
 --
 -- Utilisateur : 'blog_access'
 --
 
-CREATE USER 'blog_access'@'localhost' IDENTIFIED BY 'blog_password';
-GRANT ALL PRIVILEGES ON * . * TO 'blog_access'@'localhost';
-FLUSH PRIVILEGES;
+--CREATE USER 'blog_access'@'localhost' IDENTIFIED BY 'blog_password';
+--GRANT ALL PRIVILEGES ON * . * TO 'blog_access'@'localhost';
+--FLUSH PRIVILEGES;*/
 -- --------------------------------------------------------
 
 --

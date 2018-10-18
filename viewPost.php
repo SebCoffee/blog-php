@@ -11,7 +11,7 @@ if (!isset($_GET['id']) OR !is_numeric($_GET['id'])) { // Si l'id n'est pas tran
 $pageTitle = $post->title;
 require_once('frontHeader.php'); ?>
 
-    <article class="align-middle">
+    <article class="align-middle" style="margin-bottom: 8%">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto my-2">

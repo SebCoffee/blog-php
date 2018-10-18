@@ -10,7 +10,7 @@ if ($_SESSION['isAdmin'] == true) {
     $pageTitle = "Administration des utilisateurs";
     require_once('header.php'); ?>
 
-    <div class="entities-group">
+    <div class="entities-group" style="margin-bottom: 8%">
         <h1>Utilisateurs: </h1>
         <table class="table table-stripped">
             <tr><th>id</th>

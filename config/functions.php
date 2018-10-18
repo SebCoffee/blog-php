@@ -2,7 +2,7 @@
 
 function getPosts(){ //RECUPERE LES ARTICLES EN BDD
     require('config/connect.php');
-    $req = $bdd->prepare('SELECT id, title,edition_date,creation_date,author FROM post WHERE status like "published" ORDER BY edition_date DESC');
+    $req = $bdd->prepare('SELECT id, title,SUBSTRING(content, 1, 150) AS "preview",edition_date,creation_date,author FROM post WHERE status like "published" ORDER BY edition_date DESC');
     $req->execute();
     $data = $req->fetchAll(PDO::FETCH_OBJ);
     return $data;
@@ -33,7 +33,7 @@ function getPostById($id){ //RECUPÈRE LE POST EN BDD PAR SON ID
 
 function getLatestPosts(){ //RECUPERE LES 5 DERNIER ARTICLES
     require('config/connect.php');
-    $req = $bdd->prepare('SELECT id, title,edition_date,creation_date,status,author FROM post WHERE status like "published" ORDER BY edition_date DESC LIMIT 5');
+    $req = $bdd->prepare('SELECT id, title,SUBSTRING(content, 1, 150) AS "preview",edition_date,creation_date,status,author FROM post WHERE status like "published" ORDER BY edition_date DESC LIMIT 5');
     $req->execute();
     $data = $req->fetchAll(PDO::FETCH_OBJ);
     return $data;

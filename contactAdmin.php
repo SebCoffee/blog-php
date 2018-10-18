@@ -10,7 +10,7 @@ if ($_SESSION['isAdmin'] == true) {
     <?php $pageTitle = "Administration des messages";
     require_once('header.php');
     ?>
-    <div class="entities-group">
+    <div class="entities-group" style="margin-bottom: 8%">
         <h1>Messages: </h1>
         <table class="table table-stripped">
             <tr>
@@ -18,6 +18,7 @@ if ($_SESSION['isAdmin'] == true) {
                 <th>titre</th>
                 <th>email</th>
                 <th>date de création</th>
+                <th></th>
                 <th></th>
             </tr>
             <?php foreach ($msgs as $msg): ?>
