@@ -9,6 +9,6 @@ $msg = htmlspecialchars($_POST['message']);
 $req = $bdd->prepare('INSERT INTO contact (subject,email,message,creation_date) VALUES (:msgsubject,:email,:msg, NOW())');
 $req->execute(array('msgsubject' => $msgsubject, 'email' => $email, 'msg' => $msg));
 // UN FOIS LES DONNEES ENVOYEES EN BDD ON REDIRIGE VERS LA PAGE HOME
-header('Location: index.php');
+header('Location:index.php');
 $req->CloseCursor();
 ?>

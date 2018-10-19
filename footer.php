@@ -1,5 +1,5 @@
 </body>
-<footer class="page-footer bg-light">
+<footer class="page-footer bg-dark">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto centered" style="margin-top: 15px">

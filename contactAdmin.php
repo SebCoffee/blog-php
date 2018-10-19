@@ -10,32 +10,37 @@ if ($_SESSION['isAdmin'] == true) {
     <?php $pageTitle = "Administration des messages";
     require_once('header.php');
     ?>
-    <div class="entities-group" style="margin-bottom: 8%">
-        <h1>Messages: </h1>
-        <table class="table table-stripped">
-            <tr>
-                <th>id</th>
-                <th>titre</th>
-                <th>email</th>
-                <th>date de création</th>
-                <th></th>
-                <th></th>
-            </tr>
-            <?php foreach ($msgs as $msg): ?>
+    <div class="entities-group card" style="margin-bottom: 8%">
+        <div class="card-header">
+            <h1>Messages: </h1>
+        </div>
+        <div class="card-body">
+            <table class="table table-stripped">
                 <tr>
-                    <td>#<?= $msg->id ?></td>
-                    <td><?= $msg->subject ?></td>
-                    <td><?= $msg->email ?></td>
-                    <td>
-                        <time><?= $msg->creation_date ?>
-                            <time>
-                    </td>
-                    <td><a href="javascript:void(0);" data-href="viewMessage.php?id=<?= $msg->id ?>" class="openPopup">voir le message</a></td>
-                    <td><a href="deleteMessage.php?id=<?= $msg->id ?>"
-                           onClick="confirm('êtes vous sur de vouloir supprimer ?');">Supprimer</a></td>
+                    <th>id</th>
+                    <th>titre</th>
+                    <th>email</th>
+                    <th>date de création</th>
+                    <th></th>
+                    <th></th>
                 </tr>
-            <?php endforeach; ?>
-        </table>
+                <?php foreach ($msgs as $msg): ?>
+                    <tr>
+                        <td>#<?= $msg->id ?></td>
+                        <td><?= $msg->subject ?></td>
+                        <td><?= $msg->email ?></td>
+                        <td>
+                            <time><?= $msg->creation_date ?>
+                                <time>
+                        </td>
+                        <td><a href="javascript:void(0);" data-href="viewMessage.php?id=<?= $msg->id ?>"
+                               class="openPopup">voir le message</a></td>
+                        <td><a href="deleteMessage.php?id=<?= $msg->id ?>"
+                               onClick="confirm('êtes vous sur de vouloir supprimer ?');">Supprimer</a></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
     </div>
 
 
@@ -48,7 +53,8 @@ if ($_SESSION['isAdmin'] == true) {
                 <div class="modal-header">
 
                     <h4 class="modal-title">Voir un messsage</h4>
-                    <button type="button" class="close" data-dismiss="modal" style="float:left !important">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal" style="float:left !important">&times;
+                    </button>
                 </div>
                 <div class="modal-body">
 
@@ -67,11 +73,11 @@ if ($_SESSION['isAdmin'] == true) {
 
 ?>
 <script>
-    $(document).ready(function(){
-        $('.openPopup').on('click',function(){
+    $(document).ready(function () {
+        $('.openPopup').on('click', function () {
             var dataURL = $(this).attr('data-href');
-            $('.modal-body').load(dataURL,function(){
-                $('#myModal').modal({show:true});
+            $('.modal-body').load(dataURL, function () {
+                $('#myModal').modal({show: true});
             });
         });
     });

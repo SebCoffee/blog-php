@@ -1,18 +1,20 @@
-function submitForm(){    
+function submitForm() {
     var title = $('#title').val();
     var content = $('#email').val();
-    var status = $('input[name=status]').val();    
+    var image = $('#image').val();
+    var status = $('input[name=status]').val();
     $.ajax({
-        async: false,
         url: 'submitPostCreation.php',
         type: 'post',
         data: {
-            'title' : title,
-            'content' : content,
-            'status' : status           
+            'title': title,
+            'image': image,
+            'content': content,
+            'status': status
         },
-        success: function(){
-            alert('article sauvegardé');           
+        success: function () {
+            alert('article sauvegardé');
+            location.replace(document.referrer);
         }
     });
 }

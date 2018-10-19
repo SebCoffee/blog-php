@@ -4,7 +4,7 @@ session_start();
 if ($_SESSION['isAdmin'] == true) {
 
     if (!isset($_GET['id']) || !is_numeric($_GET['id'])) { // Si l'id n'est pas transmis  => retour à la page d'accueil
-        echo"aucun ID reçu";
+        echo "aucun ID reçu";
         //header('Location: contactAdmin.php');
     } else {
         require_once('config/functions.php');
@@ -14,8 +14,8 @@ if ($_SESSION['isAdmin'] == true) {
     ?>
 
     <?php
-    $pageTitle = "Blog | ".$Message->subject;
-     ?>
+    $pageTitle = "Blog | " . $Message->subject;
+    ?>
     <h1><?= $Message->subject ?></h1>
     <p> expediteur : <?= $Message->email ?></p>
     <p><?= $Message->message ?></p>
